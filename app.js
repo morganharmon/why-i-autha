@@ -33,7 +33,8 @@ signUpForm.addEventListener('submit', async (e) => {
 redirectIfLoggedIn();
 
 // 3. redirect from other-page to home if not signed in
-
+    // other-page.js
+    
 // 4. sign in event
 
 // 5. log out event on other-page with redirect to home

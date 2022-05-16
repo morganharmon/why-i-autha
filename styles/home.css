@@ -1,1 +1,22 @@
 /* add home page styles here */
+
+#sign-in-email:hover {
+    background-color: lightblue;
+}
+#sign-up-email:hover {
+    background-color: lightblue;
+}
+#sign-in-password:hover {
+    background-color: pink;
+}
+#sign-up-password:hover {
+    background-color: pink;
+}
+
+.blink {
+    background-color: lightblue;
+}
+
+.blinkpw {
+    background-color: pink;
+}

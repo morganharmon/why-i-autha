@@ -5,11 +5,12 @@ import { signInUser } from './fetch-utils.js';
 const signInForm = document.getElementById('sign-in');
 const signInEmail = document.getElementById('sign-in-email');
 const signInPassword = document.getElementById('sign-in-password');
+const signInButton = document.getElementById('sign-in-button');
 
 const signUpForm = document.getElementById('sign-up');
 const signUpEmail = document.getElementById('sign-up-email');
 const signUpPassword = document.getElementById('sign-up-password');
-
+const signUpButton = document.getElementById('sign-up-button');
 
 // Wire up sign in and sign up forms to supabase
 // Redirect to /other-page on successful auth
@@ -26,7 +27,6 @@ signUpForm.addEventListener('submit', async (e) => {
         location.replace('./other-page');
     }
 
-
 });
 
 // 2. redirect to other-page if signed in
@@ -41,7 +41,6 @@ redirectIfLoggedIn();
 signInForm.addEventListener('submit', async (e) => {
     e.preventDefault();
     const data = new FormData(signInForm);
-    console.log({ email: data.get('email'), password: data.get('password') });
     const user = await signInUser(data.get('email'), data.get('password'));
     if (user) {
         location.replace('./other-page');
@@ -51,3 +50,30 @@ signInForm.addEventListener('submit', async (e) => {
 
 // 5. log out event on other-page with redirect to home
     // other-page.js
+
+// 6. bonus stuff
+
+signInEmail.addEventListener('input', () => {
+    signInButton.classList.add('blink');
+    setTimeout(() => {
+        signInButton.classList.remove('blink');
+    }, 200);
+});
+signInPassword.addEventListener('input', () => {
+    signInButton.classList.add('blinkpw');
+    setTimeout(() => {
+        signInButton.classList.remove('blinkpw');
+    }, 200);
+});
+signUpEmail.addEventListener('input', () => {
+    signUpButton.classList.add('blink');
+    setTimeout(() => {
+        signUpButton.classList.remove('blink');
+    }, 200);
+});
+signUpPassword.addEventListener('input', () => {
+    signUpButton.classList.add('blinkpw');
+    setTimeout(() => {
+        signUpButton.classList.remove('blinkpw');
+    }, 200);
+});

@@ -50,3 +50,4 @@ signInForm.addEventListener('submit', async (e) => {
 });
 
 // 5. log out event on other-page with redirect to home
+    // other-page.js

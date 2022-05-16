@@ -1,5 +1,7 @@
 import { signupUser } from './fetch-utils.js';
 import { redirectIfLoggedIn } from './fetch-utils.js';
+import { signInUser } from './fetch-utils.js';
+
 const signInForm = document.getElementById('sign-in');
 const signInEmail = document.getElementById('sign-in-email');
 const signInPassword = document.getElementById('sign-in-password');
@@ -18,7 +20,6 @@ const signUpPassword = document.getElementById('sign-up-password');
 signUpForm.addEventListener('submit', async (e) => {
     e.preventDefault();
     const data = new FormData(signUpForm);
-    console.log({ email: data.get('email'), password: data.get('password') });
     const user = await signupUser(data.get('email'), data.get('password'));
     // write signupUser function
     if (user) {
@@ -34,7 +35,18 @@ redirectIfLoggedIn();
 
 // 3. redirect from other-page to home if not signed in
     // other-page.js
-    
+    // -done
+
 // 4. sign in event
+signInForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const data = new FormData(signInForm);
+    console.log({ email: data.get('email'), password: data.get('password') });
+    const user = await signInUser(data.get('email'), data.get('password'));
+    if (user) {
+        location.replace('./other-page');
+    }
+
+});
 
 // 5. log out event on other-page with redirect to home
